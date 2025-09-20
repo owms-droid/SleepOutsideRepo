@@ -34,5 +34,5 @@ export default class ShoppingCart {
       return;
     }
     renderListWithTemplate(cartItemTemplate, this.listElement, items, "afterbegin", true);
-  }
+  } 
 }
