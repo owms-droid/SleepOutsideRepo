@@ -1,3 +1,5 @@
+const baseURL = import.meta.env.VITE_SERVER_URL;
+
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -7,17 +9,35 @@ function convertToJson(res) {
 }
 
 export default class ProductData {
-  constructor(category) {
-    this.category = category;
-    this.path = `../json/${this.category}.json`;
+  constructor() {
+    // Validate that we have a server URL
+    if (!baseURL) {
+      throw new Error('Server URL not configured. Check .env file.');
+    }
   }
-  getData() {
-    return fetch(this.path)
-      .then(convertToJson)
-      .then((data) => data);
+  async getData(category) {
+    try {
+      console.log(`Fetching products for category: ${category}`);
+      console.log(`URL: ${baseURL}products/search/${category}`);
+      const response = await fetch(`${baseURL}products/search/${category}`);
+      const data = await convertToJson(response);
+      console.log('Products received:', data.Result);
+      return data.Result;
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      throw error;
+    }
   }
   async findProductById(id) {
-    const products = await this.getData();
-    return products.find((item) => item.Id === id);
+    try {
+      console.log(`Fetching product with ID: ${id}`);
+      const response = await fetch(`${baseURL}product/${id}`);
+      const data = await convertToJson(response);
+      console.log('Product received:', data.Result);
+      return data.Result;
+    } catch (error) {
+      console.error('Error fetching product:', error);
+      throw error;
+    }
   }
 }
