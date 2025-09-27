@@ -306,34 +306,6 @@ button {
   }
 }
 
-/* List footer styles */
-.list-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: var(--light-grey);
-  margin-top: 1rem;
-}
-
-.list-footer a {
-  background-color: var(--secondary-color);
-  color: white;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  border-radius: 4px;
-}
-
-.list-footer .list-total {
-  font-size: var(--large-font);
-  font-weight: bold;
-  color: var(--secondary-color);
-}
-
-.hide {
-  display: none;
-}
-
 footer {
   font-size: var(--small-font);
   border-top: 1px solid var(--tertiary-color);
