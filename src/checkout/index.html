@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Checkout</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/checkout.css" />
     <script src="../js/checkout.js" type="module"></script>
   </head>
 
@@ -13,11 +14,141 @@
     <main class="divider checkout">
       <h2>Review & Place your Order</h2>
       <section class="checkout-form">
-        <form name="checkout">
+        <form name="checkout" novalidate>
           <fieldset>
-            <legend>Shipping</legend>
-            <div class="checkout__name">
-              <label for="fname">First Name</label>
+            <legend>Shipping Information</legend>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input 
+                  type="text" 
+                  id="fname" 
+                  name="fname" 
+                  required 
+                  placeholder="Enter your first name"
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input 
+                  type="text" 
+                  id="lname" 
+                  name="lname" 
+                  required 
+                  placeholder="Enter your last name"
+                  aria-required="true"
+                />
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="street">Street Address</label>
+              <input 
+                type="text" 
+                id="street" 
+                name="street" 
+                required 
+                placeholder="Enter your street address"
+                aria-required="true"
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input 
+                  type="text" 
+                  id="city" 
+                  name="city" 
+                  required 
+                  placeholder="Enter your city"
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="state">State</label>
+                <input 
+                  type="text" 
+                  id="state" 
+                  name="state" 
+                  required 
+                  placeholder="2-letter state code"
+                  maxlength="2"
+                  pattern="[A-Z]{2}"
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="zip">ZIP Code</label>
+                <input 
+                  type="text" 
+                  id="zip" 
+                  name="zip" 
+                  required 
+                  placeholder="5-digit ZIP code"
+                  pattern="\d{5}(-\d{4})?"
+                  aria-required="true"
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Payment Information</legend>
+            <div class="form-group full-width">
+              <label for="cardNumber">Card Number</label>
+              <input 
+                type="text" 
+                id="cardNumber" 
+                name="cardNumber" 
+                required 
+                placeholder="1234 5678 9012 3456"
+                pattern="\d{16}"
+                maxlength="16"
+                aria-required="true"
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expiration">Expiration Date</label>
+                <input 
+                  type="text" 
+                  id="expiration" 
+                  name="expiration" 
+                  required 
+                  placeholder="MM/YY"
+                  pattern="(0[1-9]|1[0-2])\/\d{2}"
+                  maxlength="5"
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="code">Security Code</label>
+                <input 
+                  type="text" 
+                  id="code" 
+                  name="code" 
+                  required 
+                  placeholder="123"
+                  pattern="\d{3}"
+                  maxlength="3"
+                  aria-required="true"
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="checkout-summary" id="checkout-summary">
+            <h3>Order Summary</h3>
+            <p>Items: <span id="num-items"></span></p>
+            <p>Subtotal: <span id="cartTotal"></span></p>
+            <p>Shipping: <span id="shipping"></span></p>
+            <p>Tax: <span id="tax"></span></p>
+            <p>Total: <span id="orderTotal"></span></p>
+          </div>
+
+          <button type="submit">Place Order</button>
               <input name="fname" required />
               <label for="lname">Last Name</label>
               <input name="lname" required />
