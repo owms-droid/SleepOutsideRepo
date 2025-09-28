@@ -47,5 +47,14 @@
     </main>
 
     <footer id="main-footer">&copy;NOT a real business</footer>
+    <script>
+      try {
+        await this.services.checkout(order);
+        // Success: redirect to success page, clear cart, etc.
+      } catch (err) {
+        // err.message will contain the server's error details
+        alertMessage(err.message.message || "Order failed. Please check your input.");
+      }
+    </script>
   </body>
 </html>
