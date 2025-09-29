@@ -1,58 +1,80 @@
 <!doctype html>
-
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Outside | Checkout</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="module" src="../js/checkout.js"></script>
+</head>
 
-    <title>Sleep Outside | Checkout</title>
+<body>
+  <header class="divider" id="main-header"></header>
 
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="../js/checkout.js" type="module"></script>
+  <main class="divider">
+    <h2>Review & Place your Order</h2>
+    <div class="space"></div>
+    <!-- ORDER SUMMARY -->
+    <div id="order-summary">
+      <h1>Order Summary</h1>
+      <p>Subtotal: $<span id="subtotal">0.00</span></p>
+      <p>Tax (6%): <span id="tax">0.00</span></p>
+      <p>Shipping: <span id="shipping">0.00</span></p>
+      <p><strong>Total: <span id="total">0.00</span></strong></p>
+    </div>
     
-  </head>
+    <form id="checkout-form" name="checkout-form">
+      <!-- CUSTOMER INFO -->
+      <fieldset>
+        <legend>Customer Info</legend>
+        <label>First Name:
+          <input type="text" name="fname" placeholder="First Name" required>
+        </label><br>
+        <label>Last Name:
+          <input type="text" name="lname" placeholder="Last Name" required>
+        </label><br>
+      </fieldset>
 
-  <body>
-    <header class="divider" id="main-header"></header>
-      
+      <!-- ADDRESS -->
+      <fieldset>
+        <legend>Address</legend>
+        <label>Street Address:
+          <input type="text" name="street" placeholder="Street Address" required>
+        </label><br>
+        <label>City:
+          <input type="text" name="city" placeholder="City" required>
+        </label><br>
+        <label>State:
+          <input type="text" name="state" placeholder="State" required>
+        </label><br>
+        <label>Zip Code:
+          <input type="text" name="zip" placeholder="Zip Code" required>
+        </label><br>
+      </fieldset>
 
-    <main class="divider">
-      <section class="products">
-        <h2>Review & Place your Order</h2>
-      </section>
-      <section class="checkout-section">
-        <form id="checkout-form" autocomplete="off">
-          <fieldset>
-            <legend>Customer Name</legend>
-            <label>First Name <input type="text" name="fname" required></label>
-            <label>Last Name <input type="text" name="lname" required></label>
-          </fieldset>
-          <fieldset>
-            <legend>Address</legend>
-            <label>Street Address <input type="text" name="street" required></label>
-            <label>City <input type="text" name="city" required></label>
-            <label>State <input type="text" name="state" required></label>
-            <label>Zip Code <input type="text" name="zip" required></label>
-          </fieldset>
-          <fieldset>
-            <legend>Payment</legend>
-            <label>Credit Card Number <input type="text" name="cardNumber" required></label>
-            <label>Expiration Date <input type="text" name="expiration" required></label>
-            <label>Security Code <input type="text" name="code" required></label>
-          </fieldset>
-          <button type="submit">Checkout</button>
-        </form>
-        <section class="order-summary" id="order-summary">
-          <h2>Order Summary</h2>
-          <p>Subtotal: <span id="subtotal">$0.00</span></p>
-          <p>Tax (6%): <span id="tax">$0.00</span></p>
-          <p>Shipping: <span id="shipping">$0.00</span></p>
-          <p><strong>Order Total: <span id="order-total">$0.00</span></strong></p>
-        </section>
-      </section>
-    </main>
+      <!-- PAYMENT -->
+      <fieldset>
+        <legend>Payment</legend>
+        <label>Credit Card Number:
+          <input type="text" name="cardNumber" placeholder="1234 5678 9012 3456" value="1234123412341234" required>
+        </label><br>
+        <label>Expiration Date:
+          <input type="text" name="expiration" placeholder="MM/YY" required>
+        </label><br>
+        <label>Security Code:
+          <input type="text" name="code" placeholder="CVC" value="123" required>
+        </label><br>
+      </fieldset>
 
-    <footer id="main-footer">&copy;NOT a real business</footer>
-  </body>
+      <button id="checkoutSubmit" type="submit">Place Order</button>
+    </form>
+
+    
+    <div class="space"></div>
+  </main>
+
+  <footer id="main-footer"></footer>
+</body>
+
 </html>
